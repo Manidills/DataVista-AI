@@ -12,9 +12,13 @@
   "license": "ISC",
   "dependencies": {
     "@lighthouse-web3/sdk": "^0.3.3",
+    "@lit-protocol/constants": "^5.1.0",
+    "@lit-protocol/lit-node-client": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "ethers": "^6.12.1",
     "express": "^4.19.2",
-    "multer": "^1.4.5-lts.1"
+    "multer": "^1.4.5-lts.1",
+    "sqlite3": "^5.1.7"
   }
 }

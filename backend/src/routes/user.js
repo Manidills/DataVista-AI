@@ -2,7 +2,7 @@ import express from 'express';
 import multer  from 'multer';
 import { uploadFile } from '../controllers/user.js';
 
-const upload = multer({ dest: 'uploads/' });
+const upload = multer({ dest: 'backend/uploads/' });
 const router = express.Router();
 
 router.post(
