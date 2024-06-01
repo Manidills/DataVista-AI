@@ -239,7 +239,9 @@ def dash():
             ),  use_container_width=True
         
             )
-        st.write(cube3c4())
+        st.dataframe(cube3c5(),width=800,)
+        st.markdown("##")
+        st.dataframe(cube3c4(), width=800)
     if option == "Frames":
 
 
