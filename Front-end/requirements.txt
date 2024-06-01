@@ -14,6 +14,7 @@ scikit-learn==1.4.0  # Using a slightly older version to avoid the conflict with
 joblib==1.2.0 
 scipy==1.13.1
 streamlit==1.34.0
+pandas-profiling<=3.1.0
 streamlit_pandas_profiling
 streamlit_wallet_connect==0.0.9
 w3storage==0.0.1
