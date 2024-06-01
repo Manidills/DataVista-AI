@@ -89,6 +89,9 @@ def weatherxm():
         st.write(pd.DataFrame(cells))
 
     st.markdown("##")
+    index_df = pd.read_csv('Front-end/explorer/cell_index.csv')
+    st.data_editor(index_df,  num_rows="dynamic",use_container_width=True)
+    st.markdown("##")
 
     area_index = st.text_input("Enter the index")
 
