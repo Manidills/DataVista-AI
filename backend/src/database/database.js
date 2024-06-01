@@ -1,8 +1,15 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
 import sqlite3 from 'sqlite3';
 sqlite3.verbose();
 
+const currentModuleURL = import.meta.url;
+const __filename = fileURLToPath(currentModuleURL);
+const __dirname = path.dirname(__filename);
+
+const dbPath = path.resolve(__dirname, 'app.db');
 // Create a new database file or open an existing one
-const db = new sqlite3.Database('./backend/src/database/app.db', (err) => {
+const db = new sqlite3.Database(dbPath, (err) => {
   if (err) {
     console.error('Error opening database:', err.message);
   } else {
