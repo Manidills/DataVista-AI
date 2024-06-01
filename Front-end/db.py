@@ -8,7 +8,7 @@ import datetime
 import altair as alt
 import math
 
-
+@st.cache_resource
 def LIT_call(encrypted_cid):
 
     response = requests.get(f'https://datavista-ai.onrender.com/api/user/decryptFile/{encrypted_cid}', headers={'Connection':'close'})
@@ -108,8 +108,6 @@ def framesc4():
 
 
 def dash():
-
-
 
     option = st.selectbox(
    "How would you like to be contacted?",

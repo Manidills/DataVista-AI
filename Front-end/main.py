@@ -90,5 +90,13 @@ elif action == "About":
     """)
 
     # Footer
-    st.write("### Thank you for visiting our project!")
-    st.write("Feel free to explore and test our system.")
+    st.markdown("##")
+    st.success(f"Source data from{'https://docs.lighthouse.storage'}")
+    st.success(f"Source data from{'https://web3.storage/docs'}")
+    st.success(f"Source data from{'https://docs.estuary.tech'}")
+    st.success(f"Source data from{'https://docs.nftport.xyz/reference/upload-file-to-ipfs'}")
+    st.success(f"Source data from{'https://moralis.io/how-to-upload-files-to-ipfs-full-guide'}")
+    st.success(f"Source data from{'https://github.com/LIT-Protocol/js-sdk'}")
+    st.success(f"Source data from{'https://docs.zondax.ch/openapi#auth'}")
+    st.success(f"Source data from{'https://api.weatherxm.com/api/v1/docs/#/'}")
+
