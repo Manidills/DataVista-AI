@@ -9,19 +9,23 @@ import altair as alt
 import math
 
 
-sqliteConnection = sqlite3.connect('app.db')
-cursor = sqliteConnection.cursor()
-print("Connected to SQLite")
+def connect_db():
 
-sqlite_select_query = """SELECT cid from lighthouse"""
-cursor.execute(sqlite_select_query)
-records = cursor.fetchall()
+    sqliteConnection = sqlite3.connect('app.db')
+    cursor = sqliteConnection.cursor()
+    print("Connected to SQLite")
+
+    sqlite_select_query = """SELECT cid from lighthouse"""
+    cursor.execute(sqlite_select_query)
+    records = cursor.fetchall()
+    return records
 
 
 
 
 
 def cube3claims():
+    records = connect_db()
     response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records[0][0]}', headers={'Connection':'close'})
     csv_content = StringIO(response.text)
     df = pd.read_csv(csv_content)
@@ -29,6 +33,7 @@ def cube3claims():
     return df
 
 def cube3c2():
+    records = connect_db()
     response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records[1][0]}', headers={'Connection':'close'})
     csv_content = StringIO(response.text)
     df = pd.read_csv(csv_content)
@@ -36,6 +41,7 @@ def cube3c2():
     return df
 
 def cube3c3():
+    records = connect_db()
     response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records[6][0]}', headers={'Connection':'close'})
     csv_content = StringIO(response.text)
     df = pd.read_csv(csv_content)
@@ -43,6 +49,7 @@ def cube3c3():
     return df
 
 def cube3c4():
+    records = connect_db()
     response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records[7][0]}', headers={'Connection':'close'})
     csv_content = StringIO(response.text)
     df = pd.read_csv(csv_content)
@@ -50,6 +57,7 @@ def cube3c4():
     return df
 
 def cube3c5():
+    records = connect_db()
     response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records[8][0]}', headers={'Connection':'close'})
     csv_content = StringIO(response.text)
     df = pd.read_csv(csv_content)
@@ -57,6 +65,7 @@ def cube3c5():
     return df
 
 def framesc1():
+    records = connect_db()
     response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records[2][0]}', headers={'Connection':'close'})
     csv_content = StringIO(response.text)
     df = pd.read_csv(csv_content)
@@ -64,6 +73,7 @@ def framesc1():
     return df
 
 def framesc2():
+    records = connect_db()
     response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records[3][0]}', headers={'Connection':'close'})
     csv_content = StringIO(response.text)
     df = pd.read_csv(csv_content)
@@ -71,6 +81,7 @@ def framesc2():
     return df
 
 def framesc3():
+    records = connect_db()
     response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records[4][0]}', headers={'Connection':'close'})
     csv_content = StringIO(response.text)
     df = pd.read_csv(csv_content)
@@ -78,6 +89,7 @@ def framesc3():
     return df
 
 def framesc4():
+    records = connect_db()
     response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records[10][0]}', headers={'Connection':'close'})
     csv_content = StringIO(response.text)
     df = pd.read_csv(csv_content)
