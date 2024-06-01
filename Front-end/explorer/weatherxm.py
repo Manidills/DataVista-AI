@@ -3,18 +3,37 @@ import pandas as pd
 import requests
 import altair as alt
 import numpy as np
+import time
 
 
 def contract_all(url):
 
-    url = url
-    headers = {
-        "accept": "application/json",'Connection':'close'
-    }
+    from requests.exceptions import ConnectionError
 
-    # Making the GET request
-    response = requests.get(url, headers=headers)
-    data = response.json()
+    # ...
+
+    nb_tries = 10
+    while True:
+        nb_tries -= 1
+        try:
+            url = url
+            headers = {
+                "accept": "application/json",
+                "authorization": "Bearer eyJhbGciOiJFUzI1NiIsImtpZCI6ImtleS1iZXJ5eC0wMDEiLCJ0eXAiOiJKV1QifQ.eyJyb2xlcyI6W10sImlzcyI6IlpvbmRheCIsImF1ZCI6WyJiZXJ5eCJdLCJleHAiOjE3MjA5NzY0MDcsImp0aSI6Ik1hbmlrYW5kYW40MSxtYW5pQGJpdHNjcnVuY2guY29tIn0.dN9ygtiZ4WsLdsq3sSh_rDdWsV2bujKzj1qRCcfyhr5Delk7CjwYaGcyTtOZCRNcoDTV9ff3Aev_OutpDM4WsA"
+            }
+
+            # Making the GET request
+            response = requests.get(url, headers=headers)
+            data = response.json()
+                    # Request url
+            break
+        except ConnectionError as err:
+            if nb_tries == 0:
+                raise err
+            else:
+                time.sleep(1)
+
+    
     return data
 
 
