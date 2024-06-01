@@ -8,7 +8,13 @@ import datetime
 import altair as alt
 import math
 
-@st.cache_data ()
+
+def LIT_call(encrypted_cid):
+
+    response = requests.get(f'https://datavista-ai.onrender.com/api/user/decryptFile/{encrypted_cid}', headers={'Connection':'close'})
+    res_json = response.json()
+    return res_json['data']['cid']
+
 def connect_db():
 
     sqliteConnection = sqlite3.connect('app.db')
@@ -29,72 +35,72 @@ def connect_db():
 
 
 def cube3claims():
-    #records = connect_db()
-    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/QmNSh6cP52MEmA4hPZZ5WdKsr8uwY4JGdeP6qi3RmCZpqA', headers={'Connection':'close'})
+    records = LIT_call('76892e207d068ca8887188620bf824781934c60910b8b79af7a93b5a316460cc')
+    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records}', headers={'Connection':'close'})
     csv_content = StringIO(response.text)
     df = pd.read_csv(csv_content)
     df['date'] = pd.to_datetime(df['date'])
     return df
 
 def cube3c2():
-    #records = connect_db()
-    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/QmX2NTwPv5ZAoQvv8BmtBy53KyStLXg6xawtQbi6FSNzFu', headers={'Connection':'close'})
+    records = LIT_call('799a24cd0985ebf8ec27aee3e4560916b72bb7fc4388eeb11e33059148467ffc')
+    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records}', headers={'Connection':'close'})
     csv_content = StringIO(response.text)
     df = pd.read_csv(csv_content)
     df['date'] = pd.to_datetime(df['date'])
     return df
 
 def cube3c3():
-    records = connect_db()
-    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records[6][0]}', headers={'Connection':'close'})
+    records = LIT_call('527c14b284f0360087d22fb8a5c7d303371a27842f249f751bc541dc0df33545')
+    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records}', headers={'Connection':'close'})
     csv_content = StringIO(response.text)
     df = pd.read_csv(csv_content)
     #df['dt'] = pd.to_datetime(df['dt'])
     return df
 
 def cube3c4():
-    records = connect_db()
-    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records[7][0]}', headers={'Connection':'close'})
+    records = LIT_call('7a0e4bc28ba8de96e284b2e0e728529198c8e1ebcbc3da4d9ade1067195065ef')
+    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records}', headers={'Connection':'close'})
     csv_content = StringIO(response.text)
     df = pd.read_csv(csv_content)
     df['date'] = pd.to_datetime(df['date'])
     return df
 
 def cube3c5():
-    records = connect_db()
-    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records[8][0]}', headers={'Connection':'close'})
+    records = LIT_call('455e7f5f40cbfb885e1aab32ebf9c560185ad59c81e02ed6cf7af934f23d6c8c')
+    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records}', headers={'Connection':'close'})
     csv_content = StringIO(response.text)
     df = pd.read_csv(csv_content)
     #df['date'] = pd.to_datetime(df['date'])
     return df
 
 def framesc1():
-    records = connect_db()
-    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records[2][0]}', headers={'Connection':'close'})
+    records = LIT_call('c470efbd4afe96bf6bc5152ad68cba75730f09e18f8511bf36008d9b9cff4a81')
+    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records}', headers={'Connection':'close'})
     csv_content = StringIO(response.text)
     df = pd.read_csv(csv_content)
     df['dt'] = pd.to_datetime(df['dt'])
     return df
 
 def framesc2():
-    records = connect_db()
-    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records[3][0]}', headers={'Connection':'close'})
+    records = LIT_call('09f12d7391b2937115be365c79da8b638fc83bd85068df25c3f94f09eb2c7cbe')
+    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records}', headers={'Connection':'close'})
     csv_content = StringIO(response.text)
     df = pd.read_csv(csv_content)
     #df['dt'] = pd.to_datetime(df['dt'])
     return df
 
 def framesc3():
-    records = connect_db()
-    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records[4][0]}', headers={'Connection':'close'})
+    records = LIT_call('3ba6db5c9fb7890108887ce669651e1e37babc96391cc3eb7af4c4b7056b29c1')
+    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records}', headers={'Connection':'close'})
     csv_content = StringIO(response.text)
     df = pd.read_csv(csv_content)
     #df['dt'] = pd.to_datetime(df['dt'])
     return df
 
 def framesc4():
-    records = connect_db()
-    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records[10][0]}', headers={'Connection':'close'})
+    records = LIT_call('e5551a497288b8aeeb38777a516bc59a36f8c560694bc84c70d54429e27845f2')
+    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records}', headers={'Connection':'close'})
     csv_content = StringIO(response.text)
     df = pd.read_csv(csv_content)
     #df['dt'] = pd.to_datetime(df['dt'])
@@ -131,7 +137,7 @@ def dash():
 
         st.markdown("##")
         st.write("""
-            ### Total Claims ###
+            ### Unique Wallets ###
             """)
         st.markdown("##")
         st.altair_chart(
