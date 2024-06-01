@@ -14,6 +14,9 @@ def connect_db():
     sqliteConnection = sqlite3.connect('app.db')
     cursor = sqliteConnection.cursor()
     print("Connected to SQLite")
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
+    tables = cursor.fetchall()
+    print(tables)
 
     sqlite_select_query = """SELECT cid from lighthouse"""
     cursor.execute(sqlite_select_query)
