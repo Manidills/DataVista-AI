@@ -12,7 +12,7 @@ streamlit-pandas-profiling
 requests
 scikit_learn==1.5.0
 scipy==1.13.1
-seaborn==0.13.2
+seaborn
 streamlit_wallet_connect==0.0.9
 w3storage==0.0.1
 ydata_profiling
