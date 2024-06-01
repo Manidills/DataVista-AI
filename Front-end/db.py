@@ -282,7 +282,7 @@ def dash():
                 """)
             st.markdown("##")
             st.altair_chart(
-                alt.Chart(framesc1()).mark_area(color='white').encode(
+                alt.Chart(framesc1()).mark_area(color='green').encode(
                     y='num_recasts:N',
                     x="dt:T",    
                 ).properties(
@@ -395,7 +395,7 @@ def dash():
             """)
         st.markdown("##")
         st.altair_chart(
-            alt.Chart(framesc4()).mark_line(color='white').encode(
+            alt.Chart(framesc4()).mark_line(color='green').encode(
                 y='zora_transactions:N',
                 x="date:T",    
             ).properties(
