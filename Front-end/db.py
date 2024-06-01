@@ -6,14 +6,33 @@ import pandas as pd
 import plotly.express as px
 import datetime
 import altair as alt
-import math
+import time
 
 @st.cache_resource
 def LIT_call(encrypted_cid):
 
-    response = requests.get(f'https://datavista-ai.onrender.com/api/user/decryptFile/{encrypted_cid}', headers={'Connection':'close'})
-    res_json = response.json()
+
+    # ...
+
+    nb_tries = 10
+    while True:
+        nb_tries -= 1
+        try:
+
+            # Making the GET request
+            response =  requests.get(f'https://datavista-ai.onrender.com/api/user/decryptFile/{encrypted_cid}', headers={'Connection':'close'})
+            res_json = response.json()
+                    # Request url
+            break
+        except requests.RequestException as err:
+            if nb_tries == 0:
+                raise err
+            else:
+                time.sleep(1)
+
+    
     return res_json['data']['cid']
+
 
 def connect_db():
 
