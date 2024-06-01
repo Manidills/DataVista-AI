@@ -22,22 +22,23 @@ def connect_db():
     cursor.execute(sqlite_select_query)
     records = cursor.fetchall()
     return records
+    
 
 
 
 
 
 def cube3claims():
-    records = connect_db()
-    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records[0][0]}', headers={'Connection':'close'})
+    #records = connect_db()
+    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/QmNSh6cP52MEmA4hPZZ5WdKsr8uwY4JGdeP6qi3RmCZpqA', headers={'Connection':'close'})
     csv_content = StringIO(response.text)
     df = pd.read_csv(csv_content)
     df['date'] = pd.to_datetime(df['date'])
     return df
 
 def cube3c2():
-    records = connect_db()
-    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/{records[1][0]}', headers={'Connection':'close'})
+    #records = connect_db()
+    response = requests.get(f'https://gateway.lighthouse.storage/ipfs/QmX2NTwPv5ZAoQvv8BmtBy53KyStLXg6xawtQbi6FSNzFu', headers={'Connection':'close'})
     csv_content = StringIO(response.text)
     df = pd.read_csv(csv_content)
     df['date'] = pd.to_datetime(df['date'])
