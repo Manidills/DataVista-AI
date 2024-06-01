@@ -8,7 +8,7 @@ import datetime
 import altair as alt
 import math
 
-
+@st.cache_data ()
 def connect_db():
 
     sqliteConnection = sqlite3.connect('app.db')
