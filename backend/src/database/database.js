@@ -13,6 +13,7 @@ const db = new sqlite3.Database('./backend/src/database/app.db', (err) => {
       CREATE TABLE IF NOT EXISTS lighthouse (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         cid TEXT NOT NULL,
+        cipherText TEXT NOT NULL,
         storage TEXT NOT NULL,
         fileName TEXT NOT NULL,
         uploadDate DATETIME DEFAULT CURRENT_TIMESTAMP

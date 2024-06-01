@@ -7,4 +7,7 @@ export const config = {
     lighthouse: {
         apiKey: process.env.LIGHTHOUSE_API_KEY,
     },
+    wallet: {
+        privateKey: process.env.WALLET_PRIVATE_KEY,
+    }
 };
