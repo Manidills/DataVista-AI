@@ -91,6 +91,10 @@ def weatherxm():
     st.markdown("##")
     index_df = pd.read_csv('Front-end/explorer/cell_index.csv')
     st.data_editor(index_df,  num_rows="dynamic",use_container_width=True)
+    df_normalized = pd.json_normalize(index_df['current_weather'])
+
+    # Concatenate the original 'id' column with the normalized DataFrame
+    result_df = pd.concat([index_df['cellIndex'], index_df['timezone'],df_normalized], axis=1)
     st.markdown("##")
 
     area_index = st.text_input("Enter the index")
@@ -98,3 +102,5 @@ def weatherxm():
     if area_index:
         area_index = contract_all(f'https://api.weatherxm.com/api/v1/cells/{area_index}/devices')
         st.write(area_index)
+    else:
+        st.data_editor(result_df,  num_rows="dynamic",use_container_width=True)
