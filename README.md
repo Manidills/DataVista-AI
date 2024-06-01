@@ -29,10 +29,6 @@ Decentralytics addresses these challenges by:
 - **Open-Source**: A transparent and community-driven approach that fosters innovation and collaboration.
 - **Fast Analytics**: Rapid turnaround time for obtaining analytics using AI models.
 
-Sure! Here's the detailed "Architecture" section for the Decentralytics project:
-
----
-
 ## Architecture
 
 ### Data Collection
