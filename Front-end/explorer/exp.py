@@ -4,19 +4,24 @@ from explorer.weatherxm import weatherxm
 import streamlit as st
 import pandas as pd
 import requests
+from lit import wallet_con
 
 
 
 def exp():
     option = st.selectbox(
    "Select Network",
-   ("Near", "Filecoin", "WeatherXM"),
-   index=None,
+   ("Near [Premium]", "Filecoin", "WeatherXM"),
+   index=0,
    placeholder="Select contact method...",
 )
     
-    if option == 'Near':
-        near_app()
+    if option == 'Near [Premium]':
+
+        if wallet_con() == True:
+            near_app()
+        else:
+            st.info("Please connect Wallet for authentication")
     elif option == 'Filecoin':
         file()
     elif option == 'WeatherXM':

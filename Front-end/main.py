@@ -46,7 +46,6 @@ def wallet_con():
         return wallet
     
 
-wallet = wallet_con()
 
 if action == "Analytics":
     analytics()

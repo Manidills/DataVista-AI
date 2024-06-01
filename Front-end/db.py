@@ -109,10 +109,12 @@ def framesc4():
 
 def dash():
 
+
+
     option = st.selectbox(
    "How would you like to be contacted?",
    ("Layer3_Cubes", "Frames"),
-   index=None,
+   index=0,
    placeholder="Select contact method...",
 )
     
