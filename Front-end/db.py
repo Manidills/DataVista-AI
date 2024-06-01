@@ -282,7 +282,7 @@ def dash():
                 """)
             st.markdown("##")
             st.altair_chart(
-                alt.Chart(framesc1()).mark_area(color='green').encode(
+                alt.Chart(framesc1()).mark_area(color='black').encode(
                     y='num_recasts:N',
                     x="dt:T",    
                 ).properties(
