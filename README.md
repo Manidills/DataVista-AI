@@ -81,6 +81,7 @@ Decentralytics addresses these challenges by:
 ### Explorer
 - **Network Details**: Provides comprehensive details for **Filecoin (Zondex)**, **WeatherXM**, and Near Network.
 - **Premium Features**: Offers AI anomaly detection and prediction over time, available to premium users.
+  - ![Alt text](https://i.postimg.cc/B65bcBsg/Screenshot-from-2024-06-02-15-33-52-1.png)
   - **User Validation**: Utilizes the **LIT protocol signature method** to validate users. Access to premium features is granted only to users with specific tokens.
 - **Decentralized Storage**: Follows the same architecture, using **IPFS CIDs** for data management and security.
 
