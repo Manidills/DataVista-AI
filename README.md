@@ -89,7 +89,7 @@ Decentralytics addresses these challenges by:
 
 This project wouldn't have been possible without the APIs and data provideders, We are immensely grateful for their support and the resources they have made available to the developer community.
 
-**Zondax** -
+**Zondax** - Creating an interactive analytics explorer for Filecoin provides advanced insights and data for combined addresses. This tool helps users uncover interlinked relationships within a network of different addresses, offering a deeper understanding of the Filecoin ecosystem.
 
 `https://api.zondax.ch/fil/data/v3/mainnet/transactions/erc20/address/{address}/transfers`
 `https://api.zondax.ch/fil/data/v3/mainnet/transactions/erc20/contract/{contract_address}/address/{address}/transfers`
@@ -104,7 +104,7 @@ This project wouldn't have been possible without the APIs and data provideders, 
 `https://api.zondax.ch/fil/data/v3/mainnet/stats/contract/top/unique-users?limit=10`
 `https://api.zondax.ch/fil/data/v3/mainnet/stats/gas-used/top/accounts?limit=10`
 
-**WeatherXM**
+**WeatherXM** - The WeatherXM Explorer is a powerful tool designed to focus on network-related data and provide analytics on cell indexes. It allows users to explore and discover weather data through a search option, find specific locations, and easily download data for further use. This explorer significantly aids in understanding network structures and core weather data. Additionally, weather analytics are currently under development to enhance its capabilities.
 
 `https://api.weatherxm.com/api/v1/cells/{area_index}/devices`
 `https://api.weatherxm.com/api/v1/cells`
